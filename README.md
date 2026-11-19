@@ -74,11 +74,15 @@ Notebook préparé : `02_pretraitement.ipynb`. Son exécution complète reste à
 
 ### 3. Extraire les caractéristiques
 
+Notebook prepare : `03_extraction_caracteristiques.ipynb`. Il installe ses dependances dans le noyau selectionne ; son execution complete reste a verifier.
+
 - [ ] Calculer et afficher un histogramme HSV normalisé pour la couleur.
 - [ ] Calculer et afficher un histogramme de texture normalisé ; LBP est le descripteur proposé à évaluer.
 - [ ] Vérifier que les signatures ont des dimensions constantes pour toutes les images et que leur normalisation permet une comparaison cohérente.
 
 ### 4. Comparer quelques images
+
+Notebook prepare : `04_comparaison_images.ipynb`. Il compare les distances HSV et LBP sur un petit echantillon ; son execution et les resultats restent a verifier.
 
 - [ ] Comparer séparément les signatures de couleur et de texture sur un petit échantillon.
 - [ ] Tester une distance adaptée aux histogrammes normalisés, notamment Bhattacharyya ; comparer éventuellement avec la distance euclidienne.
