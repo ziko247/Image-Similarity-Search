@@ -16,6 +16,7 @@ Télécharger [Caltech-101 depuis CaltechDATA](https://data.caltech.edu/records/
 ```text
 Project_image_similarity_search/
 ├── 01_exploration_caltech101.ipynb
+├── 02_pretraitement.ipynb
 └── data/
     └── 101_ObjectCategories/
         ├── airplanes/
@@ -30,13 +31,17 @@ Le dossier `data/` est ignoré par Git : chaque personne doit télécharger les 
 Python et un environnement Jupyter sont nécessaires. Depuis un terminal ouvert à la racine du projet :
 
 ```bash
-python -m pip install notebook pillow
+python -m pip install notebook
 jupyter notebook
 ```
 
 Ouvrir `01_exploration_caltech101.ipynb`, choisir l’environnement Python où les dépendances ont été installées, puis exécuter les cellules dans l’ordre. Dans VS Code, le notebook peut également être ouvert avec la prise en charge Jupyter et un noyau Python approprié.
 
 Le notebook a été vérifié sur les comptages complets et sur un échantillon d’images ; son exécution interactive complète reste à confirmer.
+
+La premiere cellule du notebook installe Pillow dans le noyau Python selectionne.
+
+Le notebook `02_pretraitement.ipynb` présente le prétraitement d’une image. Ouvrir le fichier depuis la racine du projet et sélectionner le noyau `.venv`.
 
 ## Approche envisagée
 
@@ -59,6 +64,8 @@ Les cases cochées correspondent à un travail réalisé et vérifié. Les optio
 - [ ] Décider et documenter le traitement de `BACKGROUND_Google` (exclusion proposée pour l’évaluation par catégorie).
 
 ### 2. Prétraiter une image
+
+Notebook préparé : `02_pretraitement.ipynb`. Son exécution complète reste à vérifier.
 
 - [ ] Charger une image et vérifier sa lecture.
 - [ ] La redimensionner de manière uniforme ; 256 × 256 pixels est une valeur de départ à tester.
