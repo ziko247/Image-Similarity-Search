@@ -65,7 +65,7 @@ Les cases cochées correspondent à un travail réalisé et vérifié. Les optio
 
 ### 2. Prétraiter une image
 
-Notebook préparé : `02_pretraitement.ipynb`. Son exécution complète reste à vérifier.
+Les cellules de calcul de [02_pretraitement.ipynb](02_pretraitement.ipynb) ont été testées en Python 3.12 sur un JPEG Caltech-101. Les sept vues et les formats attendus ont été vérifiés. La cellule Pillow est prévue pour le noyau Jupyter.
 
 - [ ] Charger une image et vérifier sa lecture.
 - [ ] La redimensionner de manière uniforme ; 256 × 256 pixels est une valeur de départ à tester.
@@ -82,7 +82,7 @@ Notebook prepare : `03_extraction_caracteristiques.ipynb`. Il installe ses depen
 
 ### 4. Comparer quelques images
 
-Notebook prepare : `04_comparaison_images.ipynb`. Il compare les distances HSV et LBP sur un petit echantillon ; son execution et les resultats restent a verifier.
+Les cellules de calcul de [04_comparaison_images.ipynb](04_comparaison_images.ipynb) ont été testées en Python 3.12. La requête est exclue, les 11 candidats sont triés par distance et les cinq premiers sont affichés.
 
 - [ ] Comparer séparément les signatures de couleur et de texture sur un petit échantillon.
 - [ ] Tester une distance adaptée aux histogrammes normalisés, notamment Bhattacharyya ; comparer éventuellement avec la distance euclidienne.
@@ -91,17 +91,21 @@ Notebook prepare : `04_comparaison_images.ipynb`. Il compare les distances HSV e
 
 ### 5. Construire l’index de référence
 
-- [ ] Appliquer le même prétraitement et la même extraction à toutes les images retenues.
-- [ ] Conserver, pour chaque image, son chemin, sa catégorie et ses signatures de couleur et de texture.
-- [ ] Enregistrer l’index pour éviter de recalculer les signatures à chaque recherche.
-- [ ] Signaler les fichiers qui ne peuvent pas être lus.
+Le notebook [05_indexation_caltech101.ipynb](05_indexation_caltech101.ipynb) produit data/index_caltech101.npz avec les chemins relatifs, les categories et les signatures HSV et LBP. Cette premiere experience exclut BACKGROUND_Google. Le temps CPU et les fichiers illisibles sont affiches. Résultat obtenu sur CPU : 8 677 images indexées en 181 secondes, aucune image ignorée.
+
+- [x] Appliquer le même prétraitement et la même extraction à toutes les images retenues.
+- [x] Conserver, pour chaque image, son chemin, sa catégorie et ses signatures de couleur et de texture.
+- [x] Enregistrer l’index pour éviter de recalculer les signatures à chaque recherche.
+- [x] Signaler les fichiers qui ne peuvent pas être lus.
 
 ### 6. Rechercher des images similaires
 
-- [ ] Traiter l’image de requête exactement comme les images de la base.
-- [ ] Comparer sa signature à celles de l’index et classer les résultats par distance.
-- [ ] Afficher les N images les plus proches avec leurs scores.
-- [ ] Exclure l’image de requête des résultats lorsqu’elle appartient à la base.
+Le notebook [06_recherche_images.ipynb](06_recherche_images.ipynb) charge l'index, calcule les distances HSV et LBP et affiche les N premiers résultats. Utiliser le noyau .venv. Essai dans VS Code avec une requête airplanes et des poids égaux : 5 résultats sur 5 dans la même catégorie, soit une précision à 5 de 100 % pour cette requête. Temps CPU : 0,179 s, chargement de l'index compris.
+
+- [x] Traiter l’image de requête exactement comme les images de la base.
+- [x] Comparer sa signature à celles de l’index et classer les résultats par distance.
+- [x] Afficher les N images les plus proches avec leurs scores.
+- [x] Exclure l’image de requête des résultats lorsqu’elle appartient à la base.
 
 ### 7. Évaluer et préparer la démonstration
 
